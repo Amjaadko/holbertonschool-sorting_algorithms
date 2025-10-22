@@ -31,10 +31,9 @@ size_t lomuto_partition(int *array, size_t low, size_t high, size_t size)
 	int pivot = array[high];
 
 	i = low;
-
 	for (j = low; j < high; j++)
 	{
-		if (array[j] <= pivot) /* <= للتعامل مع العناصر المتساوية */
+		if (array[j] <= pivot)
 		{
 			if (i != j)
 			{
@@ -44,14 +43,12 @@ size_t lomuto_partition(int *array, size_t low, size_t high, size_t size)
 			i++;
 		}
 	}
-
 	if (i != high)
 	{
 		swap(&array[i], &array[high]);
 		print_array(array, size);
 	}
-
-	return i;
+	return (i);
 }
 
 /**
@@ -71,7 +68,6 @@ void quick_sort_rec(int *array, size_t low, size_t high, size_t size)
 
 		if (pivot_index > 0)
 			quick_sort_rec(array, low, pivot_index - 1, size);
-
 		quick_sort_rec(array, pivot_index + 1, high, size);
 	}
 }
